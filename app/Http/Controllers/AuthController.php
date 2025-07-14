@@ -20,7 +20,6 @@ class AuthController extends Controller
         try {
             $user =  User::create(array_merge($validated, ['password' => $password]));
             $token = $user->createToken('myAppToken');
-            // return response()->json(['message' => 'User registered successfully!'], 201);
             return (new UserResource($user))->additional([
                 'token' => $token->plainTextToken,
             ]);

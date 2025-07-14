@@ -12,9 +12,6 @@ class VendorController extends Controller
 {
     public function register(VendorRequest $request)
     {
-        Log::info('registering vendor');
-        Log::info($request->validated());
-
         try {
             $vendor = Vendor::create($request->validated());
 
